@@ -1,0 +1,5 @@
+ip a
+sudo tcpdump -i eth0 -w project_http.pcap
+tcpdump -r project_http.pcap -A 'tcp port 80' | grep -i pass
+sudo tcpdump -i eth0 -w project_https.pcap
+tcpdump -r project_https.pcap -A 'tcp port 443' | grep -i pass
