@@ -1,0 +1,26 @@
+severity:
+  cleartext_credentials: HIGH
+  basic_auth_http: HIGH
+  ftp_login: HIGH
+  cookie_http: MEDIUM
+  weak_tls: MEDIUM
+  arp_spoof: HIGH
+  port_scan: MEDIUM
+  dns_tunnel: HIGH
+  beaconing: HIGH
+
+thresholds:
+  port_scan_distinct_ports: 20
+  dns_tunnel_label_entropy: 3.8
+  dns_tunnel_min_label_len: 30
+  beaconing_min_events: 8
+  beaconing_max_jitter_pct: 15
+  tls_low_versions: ["TLS 1.0", "TLS 1.1"]
+
+allowlist:
+  cidrs: []
+  hosts: []
+
+suspicious_ports:
+  insecure: [21, 23, 25, 110, 143, 80]
+  suspicious_outbound: [4444, 5555, 6667, 31337]
